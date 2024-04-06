@@ -1,0 +1,5 @@
+# Excluimos los archivos OBJ, BIN y la carpeta .vs ya que se crean nuevamente al ejecutarse.
+/PlanEjercicio/PlanEjercicio/bin/
+/PlanEjercicio/PlanEjercicio/obj/
+/.vs
+/PlanEjercicio/.vs
