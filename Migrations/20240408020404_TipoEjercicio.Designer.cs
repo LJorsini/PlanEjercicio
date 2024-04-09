@@ -12,7 +12,7 @@ using PlanEjercicio.Data;
 namespace PlanEjercicio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240406201137_TipoEjercicio")]
+    [Migration("20240408020404_TipoEjercicio")]
     partial class TipoEjercicio
     {
         /// <inheritdoc />

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PlanEjercicio.Models;
 
 namespace PlanEjercicio.Data;
+
 
 public class ApplicationDbContext : IdentityDbContext
 {
@@ -9,4 +11,7 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
+
+    public DbSet<TipoEjercicio> TipoEjercicios;
+
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+namespace PlanEjercicio.Models;
 
 public class TipoEjercicio {
     [Key]
