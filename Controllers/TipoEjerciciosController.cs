@@ -19,10 +19,10 @@ public class TipoEjercicioController : Controller
     }
 
 
-    public IActionResult Privacy()
+    /* public IActionResult Privacy()
     {
         return View();
-    }
+    } */
 
     
 

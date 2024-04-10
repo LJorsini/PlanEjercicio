@@ -12,6 +12,6 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
-    public DbSet<TipoEjercicio> TipoEjercicios;
+    public DbSet<TipoEjercicio> TipoEjercicios {get; set;} = null!;
 
 }

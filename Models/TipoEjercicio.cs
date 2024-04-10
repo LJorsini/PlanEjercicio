@@ -3,8 +3,8 @@ namespace PlanEjercicio.Models;
 
 public class TipoEjercicio {
     [Key]
-    public int IdEjercicio;
+    public int IdEjercicio {get; set;}
     
     [Required(ErrorMessage = "Se requiere nombre de ejercicio")]
-    public string? NombreEjercicio;
+    public string? NombreEjercicio {get; set;}
 }
