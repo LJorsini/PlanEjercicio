@@ -1,35 +1,38 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using PlanEjercicio.Data;
 using PlanEjercicio.Models;
+
 
 namespace PlanEjercicio.Controllers;
 
 public class TipoEjercicioController : Controller 
 {
-    private readonly ILogger<TipoEjercicioController> _logger;
-
-    public TipoEjercicioController(ILogger<TipoEjercicioController> logger)
+    private ApplicationDbContext _context;
+    //constructor
+    public TipoEjercicioController(ApplicationDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
-    public IActionResult Index()
+    public IActionResult Index1()
     {
+
         return View();
     }
 
-
-    /* public IActionResult Privacy()
+    public JsonResult ListadoTipoEjercicio(int? id) 
     {
-        return View();
-    } */
+        var tipoDeEjercicios = _context.TipoEjercicios.ToList();
 
-    
+        if (id != null) {
+            tipoDeEjercicios  = tipoDeEjercicios.Where(t => t.IdEjercicio == id).ToList();
+        }
 
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return Json(tipoDeEjercicios);
+
     }
+
+
 }
