@@ -1,0 +1,2 @@
+hacer el link en cada vista. 
+hacer validaciones en el front

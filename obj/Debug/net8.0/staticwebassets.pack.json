@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PlanEjercicio.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -15,6 +19,10 @@
     {
       "Id": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\js\\tipoEjercicios.js",
+      "PackagePath": "staticwebassets\\js\\tipoEjercicios.js"
     },
     {
       "Id": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\lib\\bootstrap\\LICENSE",

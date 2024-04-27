@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zJyJgyq82J11+JlCkggohcUAqulVH/hvYAta0Juv2Mg=",
+  "Hash": "z8aYQ400V+C4u3CHbBHHC7Kuw5F0E57OW+q7f6nyeJ4=",
   "Source": "PlanEjercicio",
   "BasePath": "_content/PlanEjercicio",
   "Mode": "Default",
@@ -1195,6 +1195,25 @@
       "OriginalItemSpec": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PlanEjercicio.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\css\\login.css",
+      "SourceId": "PlanEjercicio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\",
+      "BasePath": "_content/PlanEjercicio",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
       "Identity": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\css\\site.css",
       "SourceId": "PlanEjercicio",
       "SourceType": "Discovered",
@@ -1250,6 +1269,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\js\\tipoEjercicios.js",
+      "SourceId": "PlanEjercicio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\",
+      "BasePath": "_content/PlanEjercicio",
+      "RelativePath": "js/tipoEjercicios.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\tipoEjercicios.js"
     },
     {
       "Identity": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

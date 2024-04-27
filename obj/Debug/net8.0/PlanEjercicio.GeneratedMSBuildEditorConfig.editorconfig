@@ -74,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/Lucas/Documents/Ezpeleta/Programacion3/PlanEjercicio/Views/EjercicioFisico/EjercicioFisico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWplcmNpY2lvRmlzaWNvXEVqZXJjaWNpb0Zpc2ljby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/Lucas/Documents/Ezpeleta/Programacion3/PlanEjercicio/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -94,8 +98,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/Documents/Ezpeleta/Programacion3/PlanEjercicio/Views/TipoEjercicios/Index1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0VqZXJjaWNpb3NcSW5kZXgxLmNzaHRtbA==
+[c:/Users/Lucas/Documents/Ezpeleta/Programacion3/PlanEjercicio/Views/TipoEjercicios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0VqZXJjaWNpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/Lucas/Documents/Ezpeleta/Programacion3/PlanEjercicio/Views/_ViewImports.cshtml]
