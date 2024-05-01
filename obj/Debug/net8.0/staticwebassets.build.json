@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z8aYQ400V+C4u3CHbBHHC7Kuw5F0E57OW+q7f6nyeJ4=",
+  "Hash": "wt1dl8Y6PHc+ddrgA7dZv9n8mxJ9cT19p1MI5ziEKE0=",
   "Source": "PlanEjercicio",
   "BasePath": "_content/PlanEjercicio",
   "Mode": "Default",
@@ -1250,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\js\\scripts.js",
+      "SourceId": "PlanEjercicio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\",
+      "BasePath": "_content/PlanEjercicio",
+      "RelativePath": "js/scripts.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\scripts.js"
     },
     {
       "Identity": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\js\\site.js",

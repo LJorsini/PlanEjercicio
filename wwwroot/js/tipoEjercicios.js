@@ -1,136 +1,132 @@
 window.onload = ListaEjercicio();
 
+//Funcion que gace que se actualice la lista de ejercicios
 function ListaEjercicio() {
   $.ajax({
-    //URL de la petision
-    url: "../../TipoEjercicios/ListaEjercicio",
-    //Informacion a eviar
+    //url desde donde se va a hacer la petision
+    url: "../../TipoEjercicios/ListadoEjercicios",
+    //Datos que se van a enviar
     data: {},
     //Tipo de petision
     type: "POST",
-    //Tipo de informacion en la respuesta
+    //tipo de informacion que se devuelve
     dataType: "json",
-    //Si la petision es satisfactoria se ejecuta este codigo
-    //la respuesta es pasada como argumento a la funcion
-    success: function (tipoDeEjercicios) {
-      let contenidoTabla = "";
+    //si la respuesta es correcta, se ejecuta el siguente codigo
+    //la respuesta es pasada por parametro como argumento de la funcion
+    success: function (tipoEjercicios) {
+      $('#ModalTipoEjercicio').modal("hide");
+      LimpiarModal();
 
-      $.each(tipoDeEjercicios, function (index, tipoDeEjercicio) {
+      let contenidoTabla = ``;
+
+      $.each(tipoEjercicios, function (index, tipoDeEjercicio) {
         contenidoTabla += `
-                    <tr>
-                        <td>${tipoDeEjercicio.nombreEjercicio}</td>
-                        <td class="text-center">
-                        <button type="button" class="btn btn-success" onclick="AbrirModalEditar(${tipoDeEjercicio.idEjercicio})">
-                        Editar
-                        </button>
-                        </td>
+                <tr>
+                    <td>${tipoDeEjercicio.nombreEjercicio}</th>
+                    <td class="text.center">
+                    <button type="button" class="btn btn-success" onclick="AbrirModalEdita(${tipoDeEjercicio.idEjercicio})">
+                     Editar
+                    </button>
 
-                        <td class="text-center">
-                        <button type="button" class="btn btn-danger" onclick="Validacion(${tipoDeEjercicio.idEjercicio})">
-                        Eliminar
-                        </button>
-                        </td>
-                    <tr>
-                `;
+                    <td class="text.center">
+                    <button type="button" class="btn btn-danger" onclick="ValidacionEliminar(${tipoDeEjercicio.idEjercicio})">
+                     Eliminar
+                    </button>
+                </tr>
+            `;
       });
+
       document.getElementById("tbody-tipoEjercicio").innerHTML = contenidoTabla;
     },
+
     error: function (xhr, status) {
-      console.log("Disculpe, existio un problema al cargar el listado");
+      console.log("Existio un problema al cargar el listado");
+    },
+  });
+}
+//Funcion para cargar nuevo ejercicio
+function GuardarEjercicio() {
+    let tipoEjercicioID = document.getElementById("TipoEjercicioId").value;
+    let descripcion = document.getElementById("descripcion").value;
+
+    $.ajax({
+        url: '../../TipoEjercicios/CargarNuevoEjercicio',
+        data: {tipoEjercicioID: tipoEjercicioID, descripcion: descripcion},
+        type: 'POST',
+        dataType: 'json',
+        
+        success: function(resultado) {
+            if(resultado != ""){
+                alert(resultado)
+            }
+            ListaEjercicio();
+        },
+
+        error: function (xhr, status) {
+            console.log("Existion un problema al cargar el registro")
+        }
+    });
+}
+//Funcion que le pregunta al usuario si quiere eliminar un registro
+
+function ValidacionEliminar(idEjercicio) {
+    console.log("Boton funciona");
+  var deseaEliminar = confirm("¿Desea Eliminar la actividad?");
+
+  if (deseaEliminar == true) {
+    EliminarActividad(idEjercicio);
+  }
+}
+
+
+//Funcion eliminar registro
+function EliminarActividad(idEjercicio) {
+  $.ajax({
+    url: "../../TipoEjercicios/EliminarRegistro",
+    data: { idEjercicio: idEjercicio },
+    type: "POST",
+    dataType: "Json",
+
+    success: function (resultado) {
+      ListaEjercicio();
+    },
+    error: function (xhr, status) {
+      alert("hubo un error");
     },
   });
 }
 
-function LimpiarModal() {
+//Modal Editar 
+function AbrirModalEdita(idEjercicio) {
+  console.log("Boton funciona")
+  $.ajax({
+    url: "../../TipoEjercicios/ListadoEjercicios",
+    data: { idEjercicio : idEjercicio},
+    type: "POST",
+    dataType: "json",
+    
+    success: function(tipoEjercicios){
+      let tipoDeEjercicio = tipoEjercicios[0];
+
+      document.getElementById("TipoEjercicioId").value = idEjercicio;
+      $("#ModalTitulo").text("Editar tipo de ejercicio");
+      var prueba = document.getElementById("descripcion").value = tipoDeEjercicio.nombreEjercicio;
+      console.log(prueba);
+      $("#ModalTipoEjercicio").modal("show");
+
+    },
+
+    error: function (xhr, status) {
+      console.log("No se puede editar el registro")
+    }
+  })
+
+
+}
+
+
+function LimpiarModal ()
+{
     document.getElementById("TipoEjercicioId").value = 0;
     document.getElementById("descripcion").value = "";
 }
-
-function NuevoRegistro() {
-    $("#ModalTitulo").text("Nuevo tipo de ejercicio");
-    
-}
-
-
-//Modal editar
-function AbrirModalEditar(tipoEjercicioId){
-    $.ajax({
-        url: "../../TipoEjercicios/ListaEjercicio",
-        data: { data: tipoEjercicioId },
-        type: 'POST',
-        dataType: 'json',
-        success: function (tipoDeEjercicios) {
-            let tipoDeEjercicio = tipoDeEjercicios[0];
-
-            document.getElementById("TipoEjercicioId").value = tipoEjercicioId;
-            $("#ModalTitulo").text("Editar tipo de ejercicio");
-            document.getElementById("descripcion").value = tipoDeEjercicio.nombreEjercicio;
-            $("#ModalTipoEjercicio").modal("show");
-        },
-        error: function (xhr, status) {
-            console.log("Hubo un problema al consultar el registro");
-        }
-    })
-}
-
-
-//Funcion para guarar un registro
-function GuardarEjercicio() {
-    let tipoEjercicioId = document.getElementById("TipoEjercicioId").value;
-    let descripcionEjercicio = document.getElementById("descripcion").value;
-
-    console.log(descripcionEjercicio);
-
-    $.ajax({
-        url: "../../TipoEjercicios/GuardarTipoEjercicio",
-        data: {IdEjercicio: tipoEjercicioId, NombreEjercicio: descripcionEjercicio },
-        type: 'POST',
-        dataType: 'json',
-
-        success: function (resultado) {
-            
-            if(resultado != "") {
-                alert(resultado);
-            }
-            ListaEjercicio();
-        },
-        error: function (xhr, status) {
-            console.log("Hubo un problema al cargar el registro");
-        }
-    });
-}
-
-
-//validacion eliminar
-function Validacion(tipoEjercicioId) {
-    var deseaEliminar = alert("Desea eliminar el registro?")
-    
-    if (deseaEliminar == true) {
-        EliminarEjercicio(tipoEjercicioId);
-    }
-}
-
-function EliminarEjercicio (tipoEjercicioId){
-    $.ajax({
-        url: "../../Tipoejercicios/EliminarTipoEjercicio",
-        data: {IdEjercicio: tipoEjercicioId },
-        type: 'POST',
-        dataType: 'json',
-
-        success: function (resultado) {
-            
-            ListaEjercicio();
-        },
-        error: function (xhr, status) {
-            console.log("Hubo un problema al cargar el registro");
-        }
-
-    })
-
-}
-
-
-
-
-
-

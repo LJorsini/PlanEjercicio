@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PlanEjercicio.Data;
 using PlanEjercicio.Models;
@@ -6,10 +7,10 @@ using SQLitePCL;
 
 
 namespace PlanEjercicio.Controllers;
-
+[Authorize]
 public class TipoEjerciciosController : Controller
 {
-    private ApplicationDbContext _context;
+    private  ApplicationDbContext _context;
     //constructor
     public TipoEjerciciosController(ApplicationDbContext context)
     {
@@ -22,81 +23,87 @@ public class TipoEjerciciosController : Controller
         return View();
     }
 
-    public JsonResult ListaEjercicio(int? id)
+    //Metodo para mostrar la lista de los tipos de ejercicios
+    public JsonResult ListadoEjercicios(int? id)
     {
-        var tipoDeEjercicios = _context.TipoEjercicios.ToList();
+        //se guarda en una variable el listado completo de los tipos de ejercicio
+        var tipoEjercicios = _context.TipoEjercicios.ToList();
 
+        //si el usuario ingresa un id pasa lo siguiente
         if (id != null)
         {
-            tipoDeEjercicios = tipoDeEjercicios.Where(t => t.IdEjercicio == id).ToList();
+            tipoEjercicios = tipoEjercicios.Where(t => t.IdEjercicio == id).ToList();
         }
 
-
-        return Json(tipoDeEjercicios);
-
+        return Json(tipoEjercicios);
     }
 
-    public JsonResult GuardarTipoEjercicio(int tipoEjercicioId, string nombreEjercicio)
+    //Metodo para nuevo ejercicio
+    public JsonResult CargarNuevoEjercicio(int tipoEjercicioId, string descripcion)
     {
         string resultado = "";
 
-        if (!String.IsNullOrEmpty(nombreEjercicio))
+        if (!String.IsNullOrEmpty(descripcion))
         {
-            nombreEjercicio = nombreEjercicio.ToUpper();
+            descripcion = descripcion.ToUpper();
 
-            if (tipoEjercicioId == 0) 
+            //Este if verifica si se esta creando o editando un nuevo registro
+
+            if (tipoEjercicioId == 0)
             {
-                var existeTipoEjercicio = _context.TipoEjercicios.Where(t => t.NombreEjercicio == nombreEjercicio).Count();
-                if (existeTipoEjercicio == 0)
+                //verifico si existe un registro en la base de datos
+                var existeEjercicio = _context.TipoEjercicios.Where(t => t.NombreEjercicio == descripcion).Count();
+                if (existeEjercicio == 0)
                 {
+                    //Guardo el ejercicio
                     var tipoEjercicio = new TipoEjercicio
                     {
-                        NombreEjercicio = nombreEjercicio
+                        NombreEjercicio = descripcion
                     };
                     _context.Add(tipoEjercicio);
                     _context.SaveChanges();
                 }
                 else
                 {
-                    resultado = "Ya existe un registro con la misma descripcion";
+                    resultado = "Ya esxite un registro con la misma descripcion";
                 }
             }
             else
             {
-                //Sino se va a editar el registro
-                var tipoEjercicioEditar = _context.TipoEjercicios.Where(t => t.IdEjercicio == tipoEjercicioId ).SingleOrDefault();
-                if (tipoEjercicioEditar != null)
+                //Se va a editar el registro
+                var editarTipoEjercicio = _context.TipoEjercicios.Where(t => t.IdEjercicio == tipoEjercicioId).SingleOrDefault();
+                if (editarTipoEjercicio != null)
                 {
-                    var existeTipoEjercicio = _context.TipoEjercicios.Where(t => t.NombreEjercicio == nombreEjercicio && t.IdEjercicio != tipoEjercicioId).Count();
-                    if (existeTipoEjercicio == 0)
+                    //busco si existe un registro con el mismo nombre pero distinto id
+                    var existeEjercicio = _context.TipoEjercicios.Where(t => t.NombreEjercicio == descripcion && t.IdEjercicio == tipoEjercicioId).Count();
+                    if (existeEjercicio == 0)
                     {
-                        tipoEjercicioEditar.NombreEjercicio = nombreEjercicio;
+                        editarTipoEjercicio.NombreEjercicio = descripcion;
                         _context.SaveChanges();
                     }
                     else
                     {
-                        resultado = "Ya existe un registro con  la misma descripcion";
+                        resultado = "YA existe un registro con la misma descripcion";
                     }
                 }
             }
         }
-        else 
+        else
         {
-            resultado = "Debe ingresar una descripcion1";
+            resultado = "Debe ingresar una descripcion";
         }
-
         return Json(resultado);
     }
 
-    public JsonResult EliminarTipoEjercicio (int tipoEjercicioId)
-{
-    var tipoEjercicio = _context.TipoEjercicios.Find(tipoEjercicioId);
-    _context.Remove(tipoEjercicio);
-    _context.SaveChanges();
-    return Json(true);
+
+    //Metodo para eliminar el ejercicio
+    public JsonResult EliminarRegistro(int idEjercicio)
+    {
+        var tipoEjercicio = _context.TipoEjercicios.Find(idEjercicio);
+        _context.Remove(tipoEjercicio);
+        _context.SaveChanges();
+        return Json(true);
+    }
+
 }
-}
-
-
-
 

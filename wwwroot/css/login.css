@@ -1,8 +1,11 @@
 .contenedor-login {
-    /* background-image: url("/img/login.jpg");
-    background-color: blue; */
+    
+    
 }
 
-body {
+.container-principal {
     background-image: url("/img/login.jpg");
+    
+    
+    
 }

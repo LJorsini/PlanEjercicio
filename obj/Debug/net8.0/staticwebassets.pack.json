@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts.js"
+    },
+    {
       "Id": "C:\\Users\\Lucas\\Documents\\Ezpeleta\\Programacion3\\PlanEjercicio\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
