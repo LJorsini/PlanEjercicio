@@ -7,7 +7,7 @@ using SQLitePCL;
 
 
 namespace PlanEjercicio.Controllers;
-[Authorize]
+/* [Authorize] */
 public class TipoEjerciciosController : Controller
 {
     private  ApplicationDbContext _context;
@@ -27,12 +27,12 @@ public class TipoEjerciciosController : Controller
     public JsonResult ListadoEjercicios(int? id)
     {
         //se guarda en una variable el listado completo de los tipos de ejercicio
-        var tipoEjercicios = _context.TipoEjercicios.ToList();
+        var tipoEjercicios = _context.EjerciciosFisicos.ToList();
 
         //si el usuario ingresa un id pasa lo siguiente
         if (id != null)
         {
-            tipoEjercicios = tipoEjercicios.Where(t => t.IdEjercicio == id).ToList();
+            tipoEjercicios = tipoEjercicios.Where(t => t.EjercicioFisicoId == id).ToList();
         }
 
         return Json(tipoEjercicios);

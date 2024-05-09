@@ -12,8 +12,20 @@ namespace PlanEjercicio.Models
         public EstadoEmocional EstadoEmocionalInicio { get; set; }
         public EstadoEmocional EstadoEmocionalFin { get; set; }
         public string? Observaciones { get; set; }
-        public virtual TipoEjercicio TipoEjercicio { get; set; }
+        /* public virtual TipoEjercicio TipoEjercicio { get; set; } */
     }
+
+        public class VistaEjercicios
+        {
+            public int EjercicioFisicoId {get; set;}
+            public int IdEjercicio {get; set;}
+            public string? TipoEjercicioNombre {get; set;}
+            public string? InicioString {get; set;}
+            public string? FinString {get; set;}
+            public string? Observaciones {get; set;}
+
+
+        }
 
     public enum EstadoEmocional
     {

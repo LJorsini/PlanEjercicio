@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Ejercicios Fisicos";
+}
+<div>
+    <h1>Ejercicios Fisicos</h1>
+</div>
+
+<!-- Button trigger modal -->
+<div class="mb-2">
+    <button type="button" onclick="mostrarEjerciciosFisicos()" class="btn btn-primary">
+        Actualizar Tabla
+    </button>
+    <button type="button" id="nuevoEjercicio" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#ModalTipoEjercicio">
+        Cargar nuevo ejercicio
+    </button>
+</div>
+
+    
+
+@section Scripts{
+        <script src='~/js/ejerciciosFisicos.js'></script>
+    }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using PlanEjercicio.Models;
 
 namespace PlanEjercicio.Controllers;
-[Authorize]
+
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
