@@ -10,7 +10,7 @@ namespace PlanEjercicio.Models
         [Required(ErrorMessage = "Se requiere nombre de ejercicio")]
         public string? NombreEjercicio { get; set; }
         public bool Eliminado { get; set; }
-        public virtual ICollection<EjercicioFisico> EjerciciosFisicos { get; set; }
+        /* public virtual ICollection<EjercicioFisico> EjerciciosFisicos { get; set; } */
     }
 }
 

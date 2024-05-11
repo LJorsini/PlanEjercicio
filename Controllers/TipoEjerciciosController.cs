@@ -27,12 +27,12 @@ public class TipoEjerciciosController : Controller
     public JsonResult ListadoEjercicios(int? id)
     {
         //se guarda en una variable el listado completo de los tipos de ejercicio
-        var tipoEjercicios = _context.EjerciciosFisicos.ToList();
+        var tipoEjercicios = _context.TipoEjercicios.ToList();
 
         //si el usuario ingresa un id pasa lo siguiente
         if (id != null)
         {
-            tipoEjercicios = tipoEjercicios.Where(t => t.EjercicioFisicoId == id).ToList();
+            tipoEjercicios = tipoEjercicios.Where(t => t.IdEjercicio == id).ToList();
         }
 
         return Json(tipoEjercicios);

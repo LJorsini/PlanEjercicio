@@ -23,15 +23,12 @@ function mostrarEjerciciosFisicos ()
           $.each(ejercicio, function (index, tipoDeEjercicio) {
             contenidoTabla += `
                     <tr>
-                        <td>${tipoDeEjercicio.tipoEjercicioNombre}</th>
-                        <td>${tipoDeEjercicio.inicio}</th>
-                        <td>${tipoDeEjercicio.fin}</th>
-                        <td>${tipoDeEjercicio.estadoEmocionalInicio}</th>
-                        <td>${tipoDeEjercicio.estadoEmocionalFin}</th>
-                        <td>${tipoDeEjercicio.observaciones}</th>
+                        <td>${tipoDeEjercicio.TipoEjercicioNombre}</th>
                         
                         
-                        <td class="text.center">
+                        
+                        
+                        /* <td class="text.center">
                         <button type="button" class="btn btn-success" onclick="AbrirModalEdita(${tipoDeEjercicio.idEjercicio})">
                          Editar1
                         </button>
@@ -39,7 +36,7 @@ function mostrarEjerciciosFisicos ()
                         <td class="text.center">
                         <button type="button" class="btn btn-danger" onclick="ValidacionEliminar(${tipoDeEjercicio.idEjercicio})">
                          Eliminar
-                        </button>
+                        </button> */
                     </tr>
                 `;
           });

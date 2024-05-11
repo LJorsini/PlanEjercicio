@@ -14,7 +14,7 @@ function ListaEjercicio() {
     //si la respuesta es correcta, se ejecuta el siguente codigo
     //la respuesta es pasada por parametro como argumento de la funcion
     success: function (tipoEjercicios) {
-      $('#ModalTipoEjercicio').modal("hide");
+      $("#ModalTipoEjercicio").modal("hide");
       LimpiarModal();
 
       let contenidoTabla = ``;
@@ -46,38 +46,56 @@ function ListaEjercicio() {
 }
 //Funcion para cargar nuevo ejercicio
 function GuardarEjercicio() {
-    let tipoEjercicioID = document.getElementById("TipoEjercicioId").value;
-    let descripcion = document.getElementById("descripcion").value;
+  let tipoEjercicioID = document.getElementById("TipoEjercicioId").value;
+  let descripcion = document.getElementById("descripcion").value;
 
-    $.ajax({
-        url: '../../TipoEjercicios/CargarNuevoEjercicio',
-        data: {tipoEjercicioID: tipoEjercicioID, descripcion: descripcion},
-        type: 'POST',
-        dataType: 'json',
-        
-        success: function(resultado) {
-            if(resultado != ""){
-                alert(resultado)
-            }
-            ListaEjercicio();
-        },
+  $.ajax({
+    url: "../../TipoEjercicios/CargarNuevoEjercicio",
+    data: { tipoEjercicioID: tipoEjercicioID, descripcion: descripcion },
+    type: "POST",
+    dataType: "json",
 
-        error: function (xhr, status) {
-            console.log("Existion un problema al cargar el registro")
-        }
-    });
+    success: function (resultado) {
+      if (resultado != "") {
+        alert(resultado);
+      }
+      ListaEjercicio();
+    },
+
+    error: function (xhr, status) {
+      console.log("Existion un problema al cargar el registro");
+    },
+  });
 }
 //Funcion que le pregunta al usuario si quiere eliminar un registro
 
 function ValidacionEliminar(idEjercicio) {
-    console.log("Boton funciona");
-  var deseaEliminar = confirm("¿Desea Eliminar la actividad?");
+  console.log("Boton funciona");
 
-  if (deseaEliminar == true) {
+  /* var deseaEliminar = confirm("¿Desea Eliminar la actividad?"); */
+  Swal.fire({
+    title: "¿Desea eliminar?",
+
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Eliminado",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      EliminarActividad(idEjercicio);
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success",
+      });
+    }
+  });
+
+  /* if (deseaEliminar == true) {
     EliminarActividad(idEjercicio);
-  }
+  }  */
 }
-
 
 //Funcion eliminar registro
 function EliminarActividad(idEjercicio) {
@@ -96,37 +114,33 @@ function EliminarActividad(idEjercicio) {
   });
 }
 
-//Modal Editar 
+//Modal Editar
 function AbrirModalEdita(idEjercicio) {
-  console.log("Boton funciona")
+  console.log("Boton funciona");
   $.ajax({
     url: "../../TipoEjercicios/ListadoEjercicios",
-    data: { idEjercicio : idEjercicio},
+    data: { idEjercicio: idEjercicio },
     type: "POST",
     dataType: "json",
-    
-    success: function(tipoEjercicios){
+
+    success: function (tipoEjercicios) {
       let tipoDeEjercicio = tipoEjercicios[0];
 
       document.getElementById("TipoEjercicioId").value = idEjercicio;
       $("#ModalTitulo").text("Editar tipo de ejercicio");
-      var prueba = document.getElementById("descripcion").value = tipoDeEjercicio.nombreEjercicio;
+      var prueba = (document.getElementById("descripcion").value =
+        tipoDeEjercicio.nombreEjercicio);
       console.log(prueba);
       $("#ModalTipoEjercicio").modal("show");
-
     },
 
     error: function (xhr, status) {
-      console.log("No se puede editar el registro")
-    }
-  })
-
-
+      console.log("No se puede editar el registro");
+    },
+  });
 }
 
-
-function LimpiarModal ()
-{
-    document.getElementById("TipoEjercicioId").value = 0;
-    document.getElementById("descripcion").value = "";
+function LimpiarModal() {
+  document.getElementById("TipoEjercicioId").value = 0;
+  document.getElementById("descripcion").value = "";
 }
