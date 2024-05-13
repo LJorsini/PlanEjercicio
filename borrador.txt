@@ -1,2 +1,37 @@
 hacer el link en cada vista. 
 hacer validaciones en el front
+
+
+<tr>
+                    <td>${tipoDeEjercicio.tipoEjercicioNombre}</td>
+                    <td>${tipoDeEjercicio.inicioString}</td>
+                    <td>${tipoDeEjercicio.finString}</td>
+                    <td>${tipoDeEjercicio.observaciones}</td>
+
+                    <button type="button" class="btn btn-success" onclick="AbrirModalEdita(${tipoDeEjercicio.idEjercicio})">
+                     Editar
+                    </button>
+
+                    <td class="text.center">
+                    <button type="button" class="btn btn-danger" onclick="ValidacionEliminar(${tipoDeEjercicio.idEjercicio})">
+                     Eliminar
+                    </button>
+                    
+                    
+                    </tr>
+
+
+
+                     <thead>
+        <tr>
+        <th>Descripcion</th>
+        <th style="width: 70px"></th>
+        <th style="width: 70px"></th>
+
+        <th>FEcha inicio</th>
+        <th style="width: 70px"></th>
+        <th style="width: 70px"></th>
+        </tr>
+
+
+        </thead> 

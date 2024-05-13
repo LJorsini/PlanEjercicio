@@ -17,31 +17,33 @@ function mostrarEjerciciosFisicos ()
         success: function (ejercicio) {
           /* $('#ModalTipoEjercicio').modal("hide"); */
           /* LimpiarModal(); */
-    
+          console.log(ejercicio);
           let contenidoTabla = ``;
     
           $.each(ejercicio, function (index, tipoDeEjercicio) {
             contenidoTabla += `
                     <tr>
-                        <td>${tipoDeEjercicio.TipoEjercicioNombre}</th>
-                        
-                        
-                        
-                        
-                        /* <td class="text.center">
-                        <button type="button" class="btn btn-success" onclick="AbrirModalEdita(${tipoDeEjercicio.idEjercicio})">
-                         Editar1
-                        </button>
-    
-                        <td class="text.center">
-                        <button type="button" class="btn btn-danger" onclick="ValidacionEliminar(${tipoDeEjercicio.idEjercicio})">
-                         Eliminar
-                        </button> */
+                        <th scope="row">${tipoDeEjercicio.tipoEjercicioNombre}</th>
+                        <td>${tipoDeEjercicio.inicioString}</td>
+                        <td>${tipoDeEjercicio.finString}</td>
+                        <td>@${tipoDeEjercicio.observaciones}</td>
+                        <td>
+                          <button type="button" class="btn btn-success" onclick="AbrirModalEdita(${tipoDeEjercicio.idEjercicio})">
+                            Editar
+                          </button>
+                        </td>
+
+                        <td>
+                          <button type="button" class="btn btn-danger" onclick="ValidacionEliminar(${tipoDeEjercicio.idEjercicio})">
+                            Eliminar
+                          </button>
+                        </td>
+
                     </tr>
                 `;
           });
     
-          document.getElementById("tbody-tipoEjercicio").innerHTML = contenidoTabla;
+          document.getElementById("tbody-ejercicioFisico").innerHTML = contenidoTabla;
         },
     
         error: function (xhr, status) {

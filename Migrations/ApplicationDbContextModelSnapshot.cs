@@ -250,14 +250,9 @@ namespace PlanEjercicio.Migrations
                     b.Property<string>("Observaciones")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TipoEjercicioIdEjercicio")
-                        .HasColumnType("int");
-
                     b.HasKey("EjercicioFisicoId");
 
-                    b.HasIndex("TipoEjercicioIdEjercicio");
-
-                    b.ToTable("EjercicioFisico");
+                    b.ToTable("EjerciciosFisicos");
                 });
 
             modelBuilder.Entity("PlanEjercicio.Models.TipoEjercicio", b =>
@@ -329,22 +324,6 @@ namespace PlanEjercicio.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("PlanEjercicio.Models.EjercicioFisico", b =>
-                {
-                    b.HasOne("PlanEjercicio.Models.TipoEjercicio", "TipoEjercicio")
-                        .WithMany("EjerciciosFisicos")
-                        .HasForeignKey("TipoEjercicioIdEjercicio")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TipoEjercicio");
-                });
-
-            modelBuilder.Entity("PlanEjercicio.Models.TipoEjercicio", b =>
-                {
-                    b.Navigation("EjerciciosFisicos");
                 });
 #pragma warning restore 612, 618
         }

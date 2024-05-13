@@ -12,7 +12,7 @@ using PlanEjercicio.Data;
 namespace PlanEjercicio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240406191846_MigracionInicial")]
+    [Migration("20240511194831_MigracionInicial")]
     partial class MigracionInicial
     {
         /// <inheritdoc />
@@ -225,6 +225,57 @@ namespace PlanEjercicio.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("PlanEjercicio.Models.EjercicioFisico", b =>
+                {
+                    b.Property<int>("EjercicioFisicoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EjercicioFisicoId"));
+
+                    b.Property<int>("EstadoEmocionalFin")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EstadoEmocionalInicio")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Fin")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdEjercicio")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Inicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EjercicioFisicoId");
+
+                    b.ToTable("EjerciciosFisicos");
+                });
+
+            modelBuilder.Entity("PlanEjercicio.Models.TipoEjercicio", b =>
+                {
+                    b.Property<int>("IdEjercicio")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEjercicio"));
+
+                    b.Property<bool>("Eliminado")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NombreEjercicio")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdEjercicio");
+
+                    b.ToTable("TipoEjercicios");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

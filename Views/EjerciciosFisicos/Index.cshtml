@@ -10,13 +10,30 @@
     <button type="button" onclick="mostrarEjerciciosFisicos()" class="btn btn-primary">
         Actualizar Tabla
     </button>
-    <button type="button" id="nuevoEjercicio" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#ModalTipoEjercicio">
+    <button type="button" id="nuevoEjercicio" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#ModalTipoEjercicio">
         Cargar nuevo ejercicio
     </button>
 </div>
 
-    
+<table class="table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Inicio</th>
+                <th scope="col">Fin</th>
+                <th scope="col">Observaciones</th>
+            </tr>
+        </thead>
+       
+        <tbody id="tbody-ejercicioFisico">
 
-@section Scripts{
+        </tbody>
+    </table>
+
+
+
+    @section Scripts {
         <script src='~/js/ejerciciosFisicos.js'></script>
     }

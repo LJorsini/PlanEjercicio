@@ -25,7 +25,7 @@ function ListaEjercicio() {
                     <td>${tipoDeEjercicio.nombreEjercicio}</th>
                     <td class="text.center">
                     <button type="button" class="btn btn-success" onclick="AbrirModalEdita(${tipoDeEjercicio.idEjercicio})">
-                     Editar1
+                     Editar
                     </button>
 
                     <td class="text.center">

@@ -48,7 +48,7 @@ public class EjerciciosFisicosController : Controller
                 TipoEjercicioNombre = tipoEjercicio.NombreEjercicio,
                 InicioString = ejercicioFisicos.Inicio.ToString("dd/MM/yyyy HH:mm"),
                 FinString = ejercicioFisicos.Fin.ToString("dd/MM/yyyy HH:mm"),
-                Observaciones = ejercicioFisicos.Observaciones
+                Observaciones = ejercicioFisicos.Observaciones,
 
             };
             mostrarEjercicios.Add(mostrarEjercicioFisico);

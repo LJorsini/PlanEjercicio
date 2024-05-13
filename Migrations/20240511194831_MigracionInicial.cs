@@ -51,6 +51,38 @@ namespace PlanEjercicio.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EjerciciosFisicos",
+                columns: table => new
+                {
+                    EjercicioFisicoId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdEjercicio = table.Column<int>(type: "int", nullable: false),
+                    Inicio = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Fin = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EstadoEmocionalInicio = table.Column<int>(type: "int", nullable: false),
+                    EstadoEmocionalFin = table.Column<int>(type: "int", nullable: false),
+                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EjerciciosFisicos", x => x.EjercicioFisicoId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoEjercicios",
+                columns: table => new
+                {
+                    IdEjercicio = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NombreEjercicio = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Eliminado = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoEjercicios", x => x.IdEjercicio);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -213,6 +245,12 @@ namespace PlanEjercicio.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "EjerciciosFisicos");
+
+            migrationBuilder.DropTable(
+                name: "TipoEjercicios");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
