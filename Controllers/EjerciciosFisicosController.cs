@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PlanEjercicio.Data;
 using PlanEjercicio.Models;
 
 namespace PlanEjercicio.Controllers;
+[Authorize]
 
 public class EjerciciosFisicosController : Controller
 {

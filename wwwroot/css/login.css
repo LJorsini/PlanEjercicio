@@ -1,11 +1,65 @@
-.contenedor-login {
-    
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     
 }
 
-.container-principal {
-    background-image: url("/img/login.jpg");
+
+.div-login {
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 600px;
+    margin-top: 50px;
+}
+
+
+.contenedor-login {
+    /* height: 100vh; */
+    /* width: 100vw; */
+    display: flex;
+    justify-content: center;
     
+    background-image: url(../img/login.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.account {
+    width: 100%;
+}
+
+.form-floating {
+    width: 400px;
+}
+
+.div-parrafo  {
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.div-parrafo a {
+    text-decoration: none;
+}
+
+html {
     
+    height: 100vh;
+}
+
+
+.div-main {
+    display: flex;
+    justify-content: center;
+    
+}
+.div-registrar {
+    width: 50%;
+    display: flex;
+    justify-content: center;
     
 }

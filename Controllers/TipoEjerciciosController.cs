@@ -7,7 +7,7 @@ using SQLitePCL;
 
 
 namespace PlanEjercicio.Controllers;
-/* [Authorize] */
+[Authorize]
 public class TipoEjerciciosController : Controller
 {
     private  ApplicationDbContext _context;
