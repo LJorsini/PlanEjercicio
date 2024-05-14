@@ -18,58 +18,6 @@
     </button>
 </div>
 
-@* <!-- Modal -->
-    <div class="modal fade" id="ModalEjercicioFisico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalTitulo"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" id="ModalEjercicioFisico" value="0"/>
-                            <label for="descripcion" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" id="descripcion" style="text-transform:uppercase" placeholder="Nombre del tipo de actividad">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="fechaInicio" class="form-label">Fecha y hora Inicio</label>
-                            <input type="datetime-local" class="form-control" id="fechaFin" style="text-transform:uppercase" placeholder="Fecha y hoar inicio actividad">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="fechaFin" class="form-label">Fechay hora Fin</label>
-                            <input type="datetime-local" class="form-control" id="fechaInicio" style="text-transform:uppercase" placeholder="Fecha y hoar fin actividad">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="animoPrincipio" class="form-label">Estado de animo principio</label>
-                            <input type="text" class="form-control" id="animoPrincipio" style="text-transform:uppercase" placeholder="Estado de animo">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="animoFin" class="form-label">Estado de animo fin</label>
-                            <input type="text" class="form-control" id="animoFin" style="text-transform:uppercase" placeholder="Estado de animo">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="observaciones" class="form-label">Observciones</label>
-                            <input type="text" class="form-control" id="observaciones" style="text-transform:uppercase" placeholder="Observaciones">
-                        </div>
-
-                        
-                    </form>
-                </div>
-            <div class="modal-footer">
-                <button type="button" onclick="LimpiarModal()" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="GuardarEjercicio()">Guardar</button>
-            </div>
-            </div>
-        </div>
-    </div> *@
 
     <!-- Modal -->
 <div class="modal fade" id="ModalEjercicioFisico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,7 +30,7 @@
       <div class="modal-body">
         <form>
           <div class="row">
-            <input type="hidden" id="EjercicioFisicoID" value="0" />
+            <input type="show" id="EjercicioFisicoID" value="0" />
             <div class="mb-3 col-12">
               <label for="TipoEjercicioID" class="form-label">Tipo de Ejercicio</label>
               @Html.DropDownList("TipoEjercicioID", null, htmlAttributes: new { @class = "form-control" })
@@ -109,13 +57,18 @@
               <label for="EstadoEmocionalFin" class="form-label">Estado Emocional Fin</label>
               @Html.DropDownList("EstadoEmocionalFin", null, htmlAttributes: new { @class = "form-control" })
             </div>
+
+             <div class="mb-3">
+              <label for="Observaciones" class="form-label">Observaciones</label>
+              <textarea id="Observaciones" class="form-control" rows="3"></textarea>
+            </div> 
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" onclick="LimpiarModal()" class="btn btn-secondary"
           data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" onclick="GuardarRegistro()" class="btn btn-primary">Guardar</button>
+        <button type="button" onclick="CargarDatosEjercicio()" class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>
@@ -142,4 +95,5 @@
 
     @section Scripts {
         <script src='~/js/ejerciciosFisicos.js'></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     }
