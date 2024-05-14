@@ -81,6 +81,8 @@ public class EjerciciosFisicosController : Controller
                 TipoEjercicioNombre = tipoEjercicio.NombreEjercicio,
                 InicioString = ejercicioFisicos.Inicio.ToString("dd/MM/yyyy HH:mm"),
                 FinString = ejercicioFisicos.Fin.ToString("dd/MM/yyyy HH:mm"),
+                EstadoEmocionalInicio = Enum.GetName(typeof(EstadoEmocional), ejercicioFisicos.EstadoEmocionalInicio),
+                EstadoEmocionalFin = Enum.GetName(typeof(EstadoEmocional), ejercicioFisicos.EstadoEmocionalFin),
                 Observaciones = ejercicioFisicos.Observaciones,
 
             };
@@ -129,10 +131,10 @@ public class EjerciciosFisicosController : Controller
 
 public JsonResult ListadoEjercicios(int? id)
     {
-        //se guarda en una variable el listado completo de los tipos de ejercicio
+        
         var ejerciciosFisicos = _context.EjerciciosFisicos.ToList();
 
-        //si el usuario ingresa un id pasa lo siguiente
+        
         if (id != null)
         {
             ejerciciosFisicos = ejerciciosFisicos.Where(t => t.EjercicioFisicoId == id).ToList();
