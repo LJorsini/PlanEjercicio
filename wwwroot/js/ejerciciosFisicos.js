@@ -6,7 +6,7 @@ function mostrarEjerciciosFisicos() {
     
     url: "../../EjerciciosFisicos/ListadoEjerciciosFisicos",
     
-    data: {},
+    data: { },
     
     type: "POST",
     

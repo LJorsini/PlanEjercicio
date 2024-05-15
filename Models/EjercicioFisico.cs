@@ -22,8 +22,8 @@ namespace PlanEjercicio.Models
             public string? TipoEjercicioNombre {get; set;}
             public string? InicioString {get; set;}
             public string? FinString {get; set;}
-            public string? EstadoEmocionalInicio { get; internal set; }
-            public string? EstadoEmocionalFin { get; internal set; }
+            public string? EstadoEmocionalInicio { get; set; }
+            public string? EstadoEmocionalFin { get; set; }
             public string? Observaciones {get; set;}
 
 

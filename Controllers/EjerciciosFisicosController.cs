@@ -72,7 +72,7 @@ public class EjerciciosFisicosController : Controller
 
         foreach (var ejercicioFisicos in ejerciciosFisicos)
         {
-            var tipoEjercicio = tiposEjercicios.Where(t => t.IdEjercicio == ejercicioFisicos.IdEjercicio).SingleOrDefault();
+            var tipoEjercicio = tiposEjercicios.Where(t => t.IdEjercicio == ejercicioFisicos.IdEjercicio).Single();
 
             var mostrarEjercicioFisico = new VistaEjercicios
             {

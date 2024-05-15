@@ -117,6 +117,7 @@ function EliminarActividad(idEjercicio) {
 //Modal Editar
 function AbrirModalEdita(idEjercicio) {
   console.log("Boton funciona");
+  console.log(mostrarEjercicioFisico);
   $.ajax({
     url: "../../TipoEjercicios/ListadoEjercicios",
     data: { idEjercicio: idEjercicio },
