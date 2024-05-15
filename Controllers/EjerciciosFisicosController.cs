@@ -54,7 +54,7 @@ public class EjerciciosFisicosController : Controller
 
     
 
-    public JsonResult ListadoEjerciciosFisicos(int? id)
+     public JsonResult ListadoEjerciciosFisicos(int? id)
     {
 
         
@@ -65,7 +65,7 @@ public class EjerciciosFisicosController : Controller
         
         if (id != null)
         {
-            ejerciciosFisicos = ejerciciosFisicos.Where(t => t.EjercicioFisicoId == id).ToList();
+            ejerciciosFisicos = ejerciciosFisicos.Where(e => e.EjercicioFisicoId == id).ToList();
         }
 
         var tiposEjercicios = _context.TipoEjercicios.ToList();

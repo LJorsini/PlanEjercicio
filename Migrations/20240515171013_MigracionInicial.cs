@@ -51,24 +51,6 @@ namespace PlanEjercicio.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EjerciciosFisicos",
-                columns: table => new
-                {
-                    EjercicioFisicoId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdEjercicio = table.Column<int>(type: "int", nullable: false),
-                    Inicio = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Fin = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EstadoEmocionalInicio = table.Column<int>(type: "int", nullable: false),
-                    EstadoEmocionalFin = table.Column<int>(type: "int", nullable: false),
-                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EjerciciosFisicos", x => x.EjercicioFisicoId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "TipoEjercicios",
                 columns: table => new
                 {
@@ -188,6 +170,31 @@ namespace PlanEjercicio.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "EjerciciosFisicos",
+                columns: table => new
+                {
+                    EjercicioFisicoId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdEjercicio = table.Column<int>(type: "int", nullable: false),
+                    Inicio = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Fin = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EstadoEmocionalInicio = table.Column<int>(type: "int", nullable: false),
+                    EstadoEmocionalFin = table.Column<int>(type: "int", nullable: false),
+                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TipoEjercicioIdEjercicio = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EjerciciosFisicos", x => x.EjercicioFisicoId);
+                    table.ForeignKey(
+                        name: "FK_EjerciciosFisicos_TipoEjercicios_TipoEjercicioIdEjercicio",
+                        column: x => x.TipoEjercicioIdEjercicio,
+                        principalTable: "TipoEjercicios",
+                        principalColumn: "IdEjercicio",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -226,6 +233,11 @@ namespace PlanEjercicio.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EjerciciosFisicos_TipoEjercicioIdEjercicio",
+                table: "EjerciciosFisicos",
+                column: "TipoEjercicioIdEjercicio");
         }
 
         /// <inheritdoc />
@@ -250,13 +262,13 @@ namespace PlanEjercicio.Migrations
                 name: "EjerciciosFisicos");
 
             migrationBuilder.DropTable(
-                name: "TipoEjercicios");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "TipoEjercicios");
         }
     }
 }

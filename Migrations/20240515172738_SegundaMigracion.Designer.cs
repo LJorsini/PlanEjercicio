@@ -12,8 +12,8 @@ using PlanEjercicio.Data;
 namespace PlanEjercicio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240511194831_MigracionInicial")]
-    partial class MigracionInicial
+    [Migration("20240515172738_SegundaMigracion")]
+    partial class SegundaMigracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

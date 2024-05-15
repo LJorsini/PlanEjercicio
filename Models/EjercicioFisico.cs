@@ -12,7 +12,7 @@ namespace PlanEjercicio.Models
         public EstadoEmocional EstadoEmocionalInicio { get; set; }
         public EstadoEmocional EstadoEmocionalFin { get; set; }
         public string? Observaciones { get; set; }
-        /* public virtual TipoEjercicio TipoEjercicio { get; set; } */
+        /* public virtual TipoEjercicio TipoEjercicio { get; set; } */ 
     }
 
         public class VistaEjercicios
