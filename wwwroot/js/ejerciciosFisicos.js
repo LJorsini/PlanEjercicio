@@ -161,13 +161,13 @@ function ValidacionEliminar(ejercicioFisicoId) {
 //Funcion eliminar registro
 function EliminarActividad(ejercicioFisicoId) {
   $.ajax({
-    url: "../../TipoEjercicios/EliminarRegistro",
+    url: "../../EjerciciosFisicos/EliminarRegistroEjercicio",
     data: { ejercicioFisicoId: ejercicioFisicoId },
     type: "POST",
     dataType: "Json",
 
     success: function (resultado) {
-      ListaEjercicio();
+      mostrarEjerciciosFisicos();
     },
     error: function (xhr, status) {
       alert("hubo un error");

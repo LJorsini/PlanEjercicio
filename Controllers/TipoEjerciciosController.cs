@@ -90,7 +90,7 @@ public class TipoEjerciciosController : Controller
         }
         else
         {
-            resultado = "Debe ingresar una descripcion";
+            resultado = "Tiene que ingresar una descripcion";
         }
         return Json(resultado);
     }
